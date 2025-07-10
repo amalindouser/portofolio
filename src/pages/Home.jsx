@@ -115,7 +115,7 @@ const HeroSection = () => (
           boxShadow="xl"
         >
           <img
-            src="/public/images/foto_.jpg"
+            src="/images/foto_.jpg"
             alt="Bagus Viki Amalindo"
             style={{ width: '400px', height: '400px', objectFit: 'cover' }}
           />
@@ -558,7 +558,7 @@ const EducationSection = () => {
       school: "Universitas Ahmad Dahlan",
       major: "S1 Informatika",
       year: "2025",
-      logo: "/public/images/uad_logo.png",
+      logo: "/images/uad_logo.png",
     },
   ];
 
