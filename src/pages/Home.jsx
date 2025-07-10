@@ -106,49 +106,51 @@ const HeroSection = () => (
 
         {/* Foto bulat */}
         <Box
-          zIndex={1}
-          overflow="hidden"
-          borderRadius="full"
-          w="300px"
-          h="300px"
-          border="4px solid white"
-          boxShadow="xl"
-        >
-          <img
-            src="/images/foto_.jpg"
-            alt="Bagus Viki Amalindo"
-            style={{ width: '400px', height: '400px', objectFit: 'cover' }}
-          />
-        </Box>
+        zIndex={1}
+        overflow="hidden"
+        borderRadius="full"
+        w={{ base: "200px", md: "300px" }}
+        h={{ base: "200px", md: "300px" }}
+        border="4px solid white"
+        boxShadow="xl"
+      >
+        <img
+          src="/images/foto_.jpg"
+          alt="Bagus Viki Amalindo"
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      </Box>
       </MotionBox>
 
       {/* Teks Deskripsi */}
       <MotionStack
-        spacing={4}
-        initial={{ x: 80, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true }}
-      >
-        <Heading size="2xl" letterSpacing="wide">
-          Bagus Viki Amalindo
-        </Heading>
-        <Text fontSize="lg" fontWeight="medium">
-          Front-End Developer 
-        </Text>
-        <Text>
-          Saya adalah lulusan S1 Informatika yang memiliki ketertarikan kuat di bidang pengembangan antarmuka web modern.
-        </Text>
-        <Text>
-          Fokus saya adalah membangun UI yang responsif dan efisien menggunakan React.js, Chakra UI.
-        </Text>
-        <Text>
-          Saya telah mengembangkan berbagai proyek web, termasuk sistem rekomendasi pekerjaan berbasis Content-Based Filtering menggunakan Python dan Flask.
-        </Text>
-        <Text>
-          Saya terus belajar dan mengikuti perkembangan teknologi front-end untuk menciptakan pengalaman pengguna yang optimal.
-        </Text>
-      </MotionStack>
+      spacing={4}
+      initial={{ x: 80, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      viewport={{ once: true }}
+      px={{ base: 2, md: 0 }}
+    >
+      <Heading size={{ base: "xl", md: "2xl" }} letterSpacing="wide">
+        Bagus Viki Amalindo
+      </Heading>
+      <Text fontSize={{ base: "md", md: "lg" }} fontWeight="medium">
+        Front-End Developer
+      </Text>
+      <Text fontSize={{ base: "sm", md: "md" }}>
+        Saya adalah lulusan S1 Informatika yang memiliki ketertarikan kuat di bidang pengembangan antarmuka web modern.
+      </Text>
+      <Text fontSize={{ base: "sm", md: "md" }}>
+        Fokus saya adalah membangun UI yang responsif dan efisien menggunakan React.js, Chakra UI.
+      </Text>
+      <Text fontSize={{ base: "sm", md: "md" }}>
+        Saya telah mengembangkan berbagai proyek web, termasuk sistem rekomendasi pekerjaan berbasis Content-Based Filtering menggunakan Python dan Flask.
+      </Text>
+      <Text fontSize={{ base: "sm", md: "md" }}>
+        Saya terus belajar dan mengikuti perkembangan teknologi front-end untuk menciptakan pengalaman pengguna yang optimal.
+      </Text>
+    </MotionStack>
+
     </Stack>
   </MotionBox>
 );
@@ -179,34 +181,39 @@ const ProjectSection = () => {
   ];
 
   return (
-    <Flex h="50vh" overflow="hidden" marginTop="40px">
+    <Flex
+      direction={{ base: "column", md: "row" }}
+      h={{ base: "auto", md: "100vh" }}
+      mt="40px"
+    >
       {/* Kiri: Judul Project */}
       <Box
-        w="650px"
+        w={{ base: "100%", md: "650px" }}
         display="flex"
         alignItems="center"
         justifyContent="center"
         px={4}
-        borderRadius="20px"
+        py={{ base: 6, md: 0 }}
       >
         <Heading
-        size="xl"
-        color="white"
-        bgGradient="linear(to-r, purple.500, pink.400)"
-        p={6}
-        borderRadius="md"
-        display="inline-block"
-        shadow="xl"
-      >
-        Project
-      </Heading>
-            </Box>
+          size={{ base: "xl", md: "2xl" }}
+          color="white"
+          bgGradient="linear(to-r, purple.500, pink.400)"
+          p={6}
+          borderRadius="md"
+          shadow="xl"
+          textAlign="center"
+        >
+          Project
+        </Heading>
+      </Box>
 
       {/* Kanan: Scrollable Card Area */}
       <Box
         flex="1"
         bg="white"
         overflowY="scroll"
+        maxH={{ base: "80vh", md: "100vh" }}
         scrollSnapType="y mandatory"
         css={{
           "&::-webkit-scrollbar": { width: "8px" },
@@ -217,44 +224,44 @@ const ProjectSection = () => {
         }}
       >
         {projects.map((project, index) => (
-        <AnimatePresence>
-          <MotionBox
-            key={index}
-            scrollSnapAlign="center"
-            h="50vh"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-            px={6}
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <Box
-              bg="white"
-              borderRadius="xl"
-              shadow="xl"
-              overflow="hidden"
-              w="50%"
-              maxW="600px"
+          <AnimatePresence key={index}>
+            <MotionBox
+              scrollSnapAlign="center"
+              h={{ base: "auto", md: "50vh" }}
+              py={{ base: 8, md: 0 }}
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              px={6}
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.5 }}
             >
-              <Image
-                src={project.image}
-                alt={project.title}
-                w="100%"
-                h="240px"
-                objectFit="cover"
-              />
-              <Box p={6}>
-                <Heading size="md" mb={2}>
-                  {project.title}
-                </Heading>
-                <Text fontSize="sm">{project.description}</Text>
+              <Box
+                bg="white"
+                borderRadius="xl"
+                shadow="xl"
+                overflow="hidden"
+                w={{ base: "100%", sm: "90%", md: "70%", lg: "50%" }}
+                maxW="600px"
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  w="100%"
+                  h={{ base: "180px", md: "240px" }}
+                  objectFit="cover"
+                />
+                <Box p={6}>
+                  <Heading size="md" mb={2}>
+                    {project.title}
+                  </Heading>
+                  <Text fontSize="sm">{project.description}</Text>
+                </Box>
               </Box>
-            </Box>
-          </MotionBox>
+            </MotionBox>
           </AnimatePresence>
         ))}
       </Box>
@@ -344,146 +351,150 @@ const SectionExperience = () => {
     : experiencesOrganizations.slice(0, 1);
 
   return (
-    <Box py={16} px={6} bg="white" id="experience">
-      <Flex
-      minH="0"
-      justify="center"
-      align="center"
-      bg=""
+    <Box py={16} px={4} bg="white" id="experience">
+  <Flex justify="center" align="center">
+    <Heading
+      size={{ base: "lg", md: "xl" }}
+      bgGradient="linear(to-r, purple.500, pink.400)"
+      color="white"
+      p={6}
+      borderRadius="lg"
+      textAlign="center"
+      shadow="xl"
     >
-      <Heading
-        size="xl"
-        bgGradient="linear(to-r, purple.500, pink.400)"
-        color="white"
-        p={6}
-        borderRadius="lg"
-        display="inline-block"
-        textAlign="center"
-        shadow="xl"
-      >
-        Pengalaman
-      </Heading>
-    </Flex>
+      Pengalaman
+    </Heading>
+  </Flex>
 
-    <Box
-      py={16}
-      px={6}
-      bg="white"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      w="900px"
-      mx="auto"        // INI KUNCI AGAR POSISI HORIZONTAL DI TENGAH
+  <Box
+    py={12}
+    px={{ base: 2, md: 6 }}
+    display="flex"
+    flexDirection="column"
+    alignItems="center"
+    w="100%"
+    maxW="960px"
+    mx="auto"
+  >
+    {/* ====== KEGIATAN ====== */}
+    <Heading
+      size={{ base: "md", md: "lg" }}
+      mb={6}
+      textAlign="left"
+      alignSelf="start"
     >
-      {/* ====== KEGIATAN ====== */}
-      <Heading size="lg" mb={6} textAlign="left" alignSelf="start">
-        Kegiatan
-      </Heading>
+      Kegiatan
+    </Heading>
 
-      <VStack spacing={6} align="stretch" mb={8} w="full" maxW="4xl">
-        <AnimatePresence>
-          {visibleActivities.map((exp, idx) => (
-            <MotionBox
-              key={exp.position}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              bg="white"
-              p={6}
-              rounded="xl"
-              shadow="md"
-              borderLeft="4px solid"
-              borderColor="purple.400"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              cursor="pointer"
-              _hover={{ shadow: "xl" }}
-            >
-              <Stack direction="row" align="stretch" mb={2}>
-                <Icon as={Briefcase} color="purple.400" />
-                <Text fontWeight="bold" fontSize="lg">
-                  {exp.position}
-                </Text>
-              </Stack>
-              <Text color="gray.600" fontSize="md">
-                {exp.company} &bull; {exp.period}
-              </Text>
-              <Text mt={2} fontSize="sm" color="gray.700">
-                {exp.description}
-              </Text>
-            </MotionBox>
-          ))}
-        </AnimatePresence>
-
-        {experiencesActivities.length > 1 && (
-          <Button
-            onClick={() => setShowAllActivities((prev) => !prev)}
-            alignSelf="center"
-            variant="outline"
-            colorScheme="purple"
+    <VStack spacing={6} align="stretch" mb={8} w="full">
+      <AnimatePresence>
+        {visibleActivities.map((exp, idx) => (
+          <MotionBox
+            key={exp.position}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            bg="white"
+            p={6}
+            rounded="xl"
+            shadow="md"
+            borderLeft="4px solid"
+            borderColor="purple.400"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            cursor="pointer"
+            _hover={{ shadow: "xl" }}
           >
-            {showAllActivities ? "Tutup" : "Lihat Selengkapnya"}
-          </Button>
-        )}
-      </VStack>
-
-      {/* ====== ORGANISASI ====== */}
-      <Heading size="lg" mb={6} textAlign="left" alignSelf="start">
-        Organisasi
-      </Heading>
-
-      <VStack spacing={6} align="stretch" w="full" maxW="4xl">
-        <AnimatePresence>
-          {visibleOrgs.map((exp, idx) => (
-            <MotionBox
-              key={exp.position}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              bg="white"
-              p={6}
-              rounded="xl"
-              shadow="md"
-              borderLeft="4px solid"
-              borderColor="purple.400"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              cursor="pointer"
-              _hover={{ shadow: "xl" }}
-            >
-              <Stack direction="row" align="center" mb={2}>
-                <Icon as={Briefcase} color="purple.400" />
-                <Text fontWeight="bold" fontSize="lg">
-                  {exp.position}
-                </Text>
-              </Stack>
-              <Text color="gray.600" fontSize="md">
-                {exp.company} &bull; {exp.period}
+            <Stack direction="row" align="stretch" mb={2}>
+              <Icon as={Briefcase} color="purple.400" />
+              <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>
+                {exp.position}
               </Text>
-              <Text mt={2} fontSize="sm" color="gray.700">
-                {exp.description}
-              </Text>
-            </MotionBox>
-          ))}
-        </AnimatePresence>
+            </Stack>
+            <Text color="gray.600" fontSize="sm">
+              {exp.company} &bull; {exp.period}
+            </Text>
+            <Text mt={2} fontSize="sm" color="gray.700">
+              {exp.description}
+            </Text>
+          </MotionBox>
+        ))}
+      </AnimatePresence>
 
-        {experiencesOrganizations.length > 1 && (
-          <Button
-            onClick={() => setShowAllOrgs((prev) => !prev)}
-            alignSelf="center"
-            variant="outline"
-            colorScheme="purple"
-            mt={4}
+      {experiencesActivities.length > 1 && (
+        <Button
+          onClick={() => setShowAllActivities((prev) => !prev)}
+          alignSelf="center"
+          variant="outline"
+          colorScheme="purple"
+        >
+          {showAllActivities ? "Tutup" : "Lihat Selengkapnya"}
+        </Button>
+      )}
+    </VStack>
+
+    {/* ====== ORGANISASI ====== */}
+    <Heading
+      size={{ base: "md", md: "lg" }}
+      mb={6}
+      textAlign="left"
+      alignSelf="start"
+    >
+      Organisasi
+    </Heading>
+
+    <VStack spacing={6} align="stretch" w="full">
+      <AnimatePresence>
+        {visibleOrgs.map((exp, idx) => (
+          <MotionBox
+            key={exp.position}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            bg="white"
+            p={6}
+            rounded="xl"
+            shadow="md"
+            borderLeft="4px solid"
+            borderColor="purple.400"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            cursor="pointer"
+            _hover={{ shadow: "xl" }}
           >
-            {showAllOrgs ? "Tutup" : "Lihat Selengkapnya"}
-          </Button>
-        )}
-      </VStack>
-    </Box>
+            <Stack direction="row" align="center" mb={2}>
+              <Icon as={Briefcase} color="purple.400" />
+              <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>
+                {exp.position}
+              </Text>
+            </Stack>
+            <Text color="gray.600" fontSize="sm">
+              {exp.company} &bull; {exp.period}
+            </Text>
+            <Text mt={2} fontSize="sm" color="gray.700">
+              {exp.description}
+            </Text>
+          </MotionBox>
+        ))}
+      </AnimatePresence>
+
+      {experiencesOrganizations.length > 1 && (
+        <Button
+          onClick={() => setShowAllOrgs((prev) => !prev)}
+          alignSelf="center"
+          variant="outline"
+          colorScheme="purple"
+          mt={4}
+        >
+          {showAllOrgs ? "Tutup" : "Lihat Selengkapnya"}
+        </Button>
+      )}
+    </VStack>
   </Box>
-  );
+</Box>
+);
 };
 
 
@@ -507,9 +518,11 @@ const SkillsSection = () => {
       px={{ base: 4, md: 8 }}
       bgGradient="linear(to-b, pink.400, purple.600)"
       minH="50vh"
-      w="80%"
-      borderRadius="20px"
+      w="full"
+      maxW="1200px"
+      borderRadius="2xl"
       mx="auto"
+      id="skills"
     >
       <Heading size="xl" mb={10} color="white" textAlign="center">
         Keahlian
@@ -526,12 +539,13 @@ const SkillsSection = () => {
             bg={cardBg}
             p={4}
             borderRadius="xl"
-            boxShadow="md"
+            boxShadow="lg"
             display="flex"
+            flexDirection="column"
             alignItems="center"
             justifyContent="center"
-            w="100px"
-            h="100px"
+            w={{ base: "100px", md: "120px" }}
+            h={{ base: "120px", md: "140px" }}
             _hover={{ transform: "scale(1.05)", transition: "0.3s" }}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -541,9 +555,13 @@ const SkillsSection = () => {
             <Image
               src={skill.logo}
               alt={skill.name}
-              boxSize="40px"
+              boxSize={{ base: "40px", md: "50px" }}
               objectFit="contain"
+              mb={2}
             />
+            <Text fontSize="sm" fontWeight="medium" textAlign="center">
+              {skill.name}
+            </Text>
           </MotionBox>
         ))}
       </SimpleGrid>
@@ -566,54 +584,59 @@ const EducationSection = () => {
     <Box
       py={16}
       px={{ base: 4, md: 8 }}
-      color="black"
-      w="100%"
+      w="full"
+      bg="gray.50"
       id="education"
     >
       <Flex
         direction={{ base: "column", md: "row" }}
-        align={{ base: "center", md: "flex-start" }}
-        gap={10}
+        align="start"
+        justify="center"
+        gap={12}
         maxW="1200px"
         mx="auto"
       >
-        {/* Judul di kiri */}
+        {/* Judul */}
         <Heading
-        size="xl"
-        bgGradient="linear(to-r, purple.500, pink.400)"
-        color="white"
-        p={6}
-        borderRadius="lg"
-        display="inline-block"
-        textAlign="center"
-        shadow="xl"
-      >
-        Pendidikan
-      </Heading>
+          size="xl"
+          bgGradient="linear(to-r, purple.500, pink.400)"
+          color="white"
+          p={6}
+          borderRadius="lg"
+          shadow="xl"
+          textAlign={{ base: "center", md: "left" }}
+          minW="200px"
+        >
+          Pendidikan
+        </Heading>
 
-        {/* List pendidikan di kanan */}
-        <VStack align="start" spacing={6} w="100%">
+        {/* Daftar Pendidikan */}
+        <VStack align="start" spacing={6} w="full">
           {educationList.map((edu, index) => (
             <Box
               key={index}
-              p={5}
-              borderRadius="md"
               bg="white"
-              w="100%"
+              p={6}
+              rounded="xl"
+              shadow="md"
+              w="full"
+              _hover={{ shadow: "lg", transform: "scale(1.01)", transition: "0.3s" }}
             >
               <HStack spacing={4}>
                 <Image
                   src={edu.logo}
                   alt={edu.school}
-                  boxSize="60px"
+                  boxSize={{ base: "50px", md: "60px" }}
                   objectFit="contain"
                 />
                 <Box>
                   <Text fontWeight="bold" fontSize="lg">
                     {edu.school}
                   </Text>
-                  <Text>{edu.major}</Text>
-                  <Text color="gray.500">{edu.year}</Text>
+                  <Text fontSize="md">{edu.major}</Text>
+                  <Text fontSize="sm" color="gray.500">
+                    Lulus: {edu.year}
+                  </Text>
                 </Box>
               </HStack>
             </Box>
@@ -623,7 +646,6 @@ const EducationSection = () => {
     </Box>
   );
 };
-
 
 const PortfolioPage = () => {
   return (
